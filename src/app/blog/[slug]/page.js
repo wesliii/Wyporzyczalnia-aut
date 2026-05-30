@@ -28,17 +28,16 @@ async function getData(slug) {
 
   return { data, data2 };
 }
-
 export default async function BlogArticle({ params }) {
   const { slug } = await params;
   const { data, data2 } = await getData(slug);
   return (
-    <div className="text-black ">
-      <div className="px-5 lg:px-20 mt-5">
-        <h3 className="text-2xl">Blogi & Artukuły</h3>
+    <div className="text-black">
+      <div className="px-5 lg:px-40 mt-5 mb-10">
+        <h3 className="text-2xl">Blogi & Artykuły</h3>
         <h1 className="text-4xl my-5">{data.title}</h1>
-        <div className=" grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-[30%_40%_20%] lg:gap-10">
-          <div className="hidden lg:block rounded-2xl ">
+        <div className="grid grid-cols-1 lg:grid-cols-[30%_30%_30%] lg:gap-[5%]">
+          <div className="hidden lg:block rounded-2xl">
             <Image
               src={urlFor(data.titleImage).url()}
               width={500}
@@ -48,36 +47,34 @@ export default async function BlogArticle({ params }) {
             />
           </div>
           <div className="min-w-0">
-            <div>
-              <div className="grid grid-cols-2 lg:hidden">
-                <Image
-                  src={urlFor(data.titleImage).url()}
-                  width={500}
-                  height={300}
-                  alt={data.title}
-                  className="rounded-2xl object-cover w-full"
-                />
-                <h1 className="text-3xl lg:text-5xl font-semibold lg:mb-5 mx-3 lg:mx-0">
-                  {data.title}
-                </h1>
-              </div>
+            <div className="grid grid-cols-2 lg:hidden">
+              <Image
+                src={urlFor(data.titleImage).url()}
+                width={500}
+                height={300}
+                alt={data.title}
+                className="rounded-2xl object-cover w-full"
+              />
+              <h1 className="text-3xl lg:text-5xl font-semibold lg:mb-5 mx-3 lg:mx-0">
+                {data.title}
+              </h1>
             </div>
-            <div className="prose max-w-none text-2xl">
-              <PortableText value={data.content} className="" />
+            <div className="prose max-w-none text-2xl my-5 lg:my-0">
+              <PortableText value={data.content} />
             </div>
           </div>
-          <div className="grid gap-5 lg:flex-col justify-around h-full grid-cols-1   ">
+
+          <div className="flex flex-col gap-5 w-[40%] lg:w-[80%] mr-auto lg:ml-auto">
             {data2
               .filter((blog) => blog.currentSlug !== data.currentSlug)
               .map((blog) => (
                 <Link
                   key={blog.currentSlug}
-                  className="mb-4 bg-[#EDECE3] p-4 rounded-2xl "
+                  className="bg-[#EDECE3] p-4 rounded-2xl w-full block min-w-70"
                   href={`/blog/${blog.currentSlug}`}
                 >
                   <h4 className="font-bold mb-5">{blog.title}</h4>
                   <div className="flex">
-                    {" "}
                     <Image
                       src={urlFor(blog.titleImage).url()}
                       width={100}
