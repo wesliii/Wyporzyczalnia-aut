@@ -34,11 +34,11 @@ export default async function BlogArticle({ params }) {
   const { data, data2 } = await getData(slug);
   return (
     <div className="text-black ">
-      <div className="px-5 lg:px-20 ">
+      <div className="px-5 lg:px-20 mt-5">
         <h3 className="text-2xl">Blogi & Artukuły</h3>
         <h1 className="text-4xl my-5">{data.title}</h1>
-        <div className="grid grid-cols-2 lg:grid-cols-[30%_40%_20%] gap-10">
-          <div>
+        <div className=" grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-[30%_40%_20%] lg:gap-10">
+          <div className="hidden lg:block rounded-2xl ">
             <Image
               src={urlFor(data.titleImage).url()}
               width={500}
@@ -48,13 +48,25 @@ export default async function BlogArticle({ params }) {
             />
           </div>
           <div className="min-w-0">
-            <h1 className="text-5xl font-semibold mb-5">{data.title}</h1>
+            <div>
+              <div className="grid grid-cols-2 lg:hidden">
+                <Image
+                  src={urlFor(data.titleImage).url()}
+                  width={500}
+                  height={300}
+                  alt={data.title}
+                  className="rounded-2xl object-cover w-full"
+                />
+                <h1 className="text-3xl lg:text-5xl font-semibold lg:mb-5 mx-3 lg:mx-0">
+                  {data.title}
+                </h1>
+              </div>
+            </div>
             <div className="prose max-w-none text-2xl">
               <PortableText value={data.content} className="" />
             </div>
           </div>
-          <div className="flex gap-5 lg:flex-col justify-around h-full col-span-3 lg:col-span-1 ">
-            <div> </div>
+          <div className="grid gap-5 lg:flex-col justify-around h-full grid-cols-1   ">
             {data2
               .filter((blog) => blog.currentSlug !== data.currentSlug)
               .map((blog) => (

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="sticky top-5 flex items-center justify-between mx-5 my-15 lg:mx-10 lg:my-5 text-black text-xl z-50   backdrop-blur rounded-xl px-5 py-3">
+    <div className="sticky top-5 flex items-center justify-between mx-5 my-15 lg:mx-10 lg:my-5 text-black text-xl z-50   backdrop-blur rounded-xl px-5 py-3 hidden lg:flex">
       <Image
         src="/rentallogo.png"
         alt="Logo"

@@ -10,7 +10,10 @@ export default function Discover() {
   return (
     <div className="h-full mx-5  mb-8 md:mx-40 md:my-15 grid grid-cols-1 lg:grid-cols-[55%_40%] gap-[5%] text-black">
       <div className="flex flex-col h-full min-h-[400px]">
-        <h3 className="text-4xl mb-10 font-medium"> Odkryj naszą flotę </h3>
+        <h3 className="text-4xl mb-5 lg:mb-10 font-medium mt-5 lg:mt-0">
+          {" "}
+          Odkryj naszą flotę{" "}
+        </h3>
 
         <h2 className="text-3xl leading-relaxed">
           {words.map((word, i) => (
@@ -26,7 +29,7 @@ export default function Discover() {
             </motion.span>
           ))}
         </h2>
-        <div className="mt-auto">
+        <div className="my-5 lg:mt-auto ">
           <Link href="/#cars">
             <Button className="text-2xl cursor-pointer">Przeglądaj</Button>
           </Link>

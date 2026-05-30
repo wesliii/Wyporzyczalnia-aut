@@ -97,7 +97,7 @@ export default function CarCarousel() {
   const imgHeight = isMobile ? 220 : 260;
 
   return (
-    <section style={s.section} className="mx-5 lg:mx-40 mt-20">
+    <section style={s.section} className="mx-5 mt-5 lg:mx-40 lg:mt-20">
       <p style={s.label}>ODKRYJ</p>
       <div style={s.header}>
         <h2 style={s.title}>Znajdź swoje idealne auto</h2>
